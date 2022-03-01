@@ -1,4 +1,5 @@
-import express from 'express';
+import express, {Request, Response, NextFunction} from 'express';
+import userRouter from "./router/user";
 class App{
 	app: express.Application;
 	constructor() {
@@ -7,9 +8,11 @@ class App{
 }
 
 const app = new App().app;
-app.get('/', (req:express.Request, res:express.Response)=>{
+app.use('/user', userRouter);
+
+app.get('/', (req:Request, res:Response)=>{
 	res.send('Hello');
 })
-app.listen(8080, () => {
+app.listen(3000, () => {
 	console.log('listen express server!');
 })
