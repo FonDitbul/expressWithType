@@ -5,10 +5,10 @@ import config from '../config';
 import userRouter from '../router/user.router'
 
 export default ({ app }: { app: express.Application }) => {
-	app.get('/status', (req, res) => {
+	app.get('/status', (req: Request, res: Response) => {
 		res.status(200).end();
 	});
-	app.head('/status', (req, res) => {
+	app.head('/status', (req: Request, res: Response) => {
 		res.status(200).end();
 	});
 	app.enable('trust proxy');
