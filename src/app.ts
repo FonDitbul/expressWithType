@@ -5,6 +5,11 @@ import express from 'express';
 async function startServer(){
 	const app = express();
 
+	const test: number[] = [];
+	if(test !== []) {
+		console.log('what is ?');
+	}
+
 	await require('./loaders').default({ expressApp: app});
 
 	app.listen(config.port || 3000, () => {
@@ -16,5 +21,5 @@ async function startServer(){
 		console.log(err);
 	})
 }
-
+// conflict
 startServer();
